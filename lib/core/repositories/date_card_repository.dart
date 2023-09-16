@@ -1,8 +1,8 @@
-import 'package:luvit_assessment/core/adapters/date_card_adapter.dart';
+import 'package:luvit_assessment/core/adapters/home_adapter.dart';
 import 'package:luvit_assessment/core/models/firebase_models.dart';
 import 'package:luvit_assessment/core/services/firebase_services/realtime_db_service.dart';
 
-class DateCardRepository implements IDateCardRepository {
+class HomeRepository implements IHomeRepository {
   RealTimeDatabaseService _realTimeDatabaseService = RealTimeDatabaseService();
   @override
   Future<DateCardData> getUser(String id) async {
