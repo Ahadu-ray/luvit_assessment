@@ -1,10 +1,8 @@
-import 'dart:js_interop';
-
+import 'dart:convert';
 import 'package:firebase_database/firebase_database.dart';
 
 extension FirebaseDBExtension on DataSnapshot {
   get toMap {
-    late Map<dynamic, dynamic> temp = value as Map<dynamic, dynamic>;
-    return temp.jsify();
+    return jsonDecode(jsonEncode(value));
   }
 }

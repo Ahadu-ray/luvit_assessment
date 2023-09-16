@@ -8,11 +8,11 @@ part of 'firebase_models.dart';
 
 _$_DateCardData _$$_DateCardDataFromJson(Map<String, dynamic> json) =>
     _$_DateCardData(
-      age: json['age'] as String,
+      age: json['age'] as int,
       description: json['description'] as String,
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
-      likeCount: json['likeCount'] as String,
+      likeCount: json['likeCount'] as int,
       location: json['location'] as String,
       name: json['name'] as String,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),

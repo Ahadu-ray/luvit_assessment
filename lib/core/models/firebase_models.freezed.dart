@@ -20,10 +20,10 @@ DateCardData _$DateCardDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DateCardData {
-  String get age => throw _privateConstructorUsedError;
+  int get age => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   List<String> get images => throw _privateConstructorUsedError;
-  String get likeCount => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
@@ -41,10 +41,10 @@ abstract class $DateCardDataCopyWith<$Res> {
       _$DateCardDataCopyWithImpl<$Res, DateCardData>;
   @useResult
   $Res call(
-      {String age,
+      {int age,
       String description,
       List<String> images,
-      String likeCount,
+      int likeCount,
       String location,
       String name,
       List<String> tags});
@@ -75,7 +75,7 @@ class _$DateCardDataCopyWithImpl<$Res, $Val extends DateCardData>
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ class _$DateCardDataCopyWithImpl<$Res, $Val extends DateCardData>
       likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -113,10 +113,10 @@ abstract class _$$_DateCardDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String age,
+      {int age,
       String description,
       List<String> images,
-      String likeCount,
+      int likeCount,
       String location,
       String name,
       List<String> tags});
@@ -145,7 +145,7 @@ class __$$_DateCardDataCopyWithImpl<$Res>
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ class __$$_DateCardDataCopyWithImpl<$Res>
       likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -192,7 +192,7 @@ class _$_DateCardData implements _DateCardData {
       _$$_DateCardDataFromJson(json);
 
   @override
-  final String age;
+  final int age;
   @override
   final String description;
   final List<String> _images;
@@ -204,7 +204,7 @@ class _$_DateCardData implements _DateCardData {
   }
 
   @override
-  final String likeCount;
+  final int likeCount;
   @override
   final String location;
   @override
@@ -267,10 +267,10 @@ class _$_DateCardData implements _DateCardData {
 
 abstract class _DateCardData implements DateCardData {
   const factory _DateCardData(
-      {required final String age,
+      {required final int age,
       required final String description,
       required final List<String> images,
-      required final String likeCount,
+      required final int likeCount,
       required final String location,
       required final String name,
       required final List<String> tags}) = _$_DateCardData;
@@ -279,13 +279,13 @@ abstract class _DateCardData implements DateCardData {
       _$_DateCardData.fromJson;
 
   @override
-  String get age;
+  int get age;
   @override
   String get description;
   @override
   List<String> get images;
   @override
-  String get likeCount;
+  int get likeCount;
   @override
   String get location;
   @override

@@ -5,10 +5,10 @@ part 'firebase_models.g.dart';
 @freezed
 class DateCardData with _$DateCardData {
   const factory DateCardData({
-    required String age,
+    required int age,
     required String description,
     required List<String> images,
-    required String likeCount,
+    required int likeCount,
     required String location,
     required String name,
     required List<String> tags,
