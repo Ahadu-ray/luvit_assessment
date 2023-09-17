@@ -6,6 +6,7 @@ import 'package:luvit_assessment/ui/components/date_card_details.dart';
 import 'package:luvit_assessment/ui/controllers/home_controllers.dart';
 import 'package:luvit_assessment/ui/widgets/current_card_indicator.dart';
 
+// This is the date card that holds progress bars, images and details of a date
 class SingleDateCard extends StatefulWidget {
   SingleDateCard({required this.data, super.key});
 

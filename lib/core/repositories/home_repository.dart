@@ -5,6 +5,8 @@ import 'package:luvit_assessment/core/adapters/home_adapter.dart';
 import 'package:luvit_assessment/core/models/firebase_models.dart';
 import 'package:luvit_assessment/core/services/firebase_services/realtime_db_service.dart';
 
+// A class that injects the RealTimeDatabaseService and performs CRUD operations
+// related to the home screen
 class HomeRepository implements IHomeRepository {
   final RealTimeDatabaseService realTimeDatabaseService;
 
@@ -46,21 +48,6 @@ class HomeRepository implements IHomeRepository {
         print("like count $likeCount");
         return await realTimeDatabaseService.updateData(
             path: id, data: {"likeCount": likeCount + 1}).then((value) {
-          return true;
-        });
-      });
-    } catch (e) {
-      return false;
-    }
-  }
-
-  @override
-  Future<bool> dislikeUser(String id) async {
-    try {
-      return await getUser(id).then((value) async {
-        int likeCount = value.likeCount;
-        return await realTimeDatabaseService.updateData(
-            path: id, data: {"likeCount": likeCount - 1}).then((value) {
           return true;
         });
       });

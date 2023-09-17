@@ -6,6 +6,7 @@ import 'package:luvit_assessment/ui/controllers/home_controllers.dart';
 import 'package:luvit_assessment/ui/widgets/date_card_bottom.dart';
 import 'package:luvit_assessment/utils/constants/asset_constants/image_constants.dart';
 
+// This widget holds the image in the background and the details of a date
 class DateCardDetails extends StatelessWidget {
   DateCardDetails(
       {required this.data,
@@ -14,9 +15,16 @@ class DateCardDetails extends StatelessWidget {
       this.onChanged,
       super.key});
 
+// the user data
   final DateCardData data;
+
+// the index of the date card
   final int index;
+
+// whether the date card is the one currently being shown in the center
   final bool isActive;
+
+// the callback to be called when the user changes the image/background/story
   final ValueSetter<int>? onChanged;
 
   final HomeController controller = Get.find();
@@ -45,6 +53,7 @@ class DateCardDetails extends StatelessWidget {
             bottom: 10,
             left: 20,
             right: 20,
+            // the bottom part of the date card that holds all the details
             child: DateCardBottom(
               data: data,
               index: index,
@@ -61,8 +70,9 @@ class DateCardDetails extends StatelessWidget {
     double dx = details.globalPosition.dx;
     double dy = details.globalPosition.dy;
 
-    print(dx);
-
+    // if the user taps on the left half of the screen, the previous image is shown
+    // if the user taps on the right half of the screen, the next image is shown
+    // the conditions are true if the tapped area is in the top half of the screen
     if (dy < screenHeight / 2) {
       if (dx < screenWidth / 2) {
         if (controller.currentDatePage == 0) {

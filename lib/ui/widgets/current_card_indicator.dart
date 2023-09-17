@@ -13,7 +13,7 @@ class CurrentCardIndicator extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
         ),
         clipBehavior: Clip.hardEdge,
-        width: Get.width / 5,
+        width: Get.width / 6,
         margin: EdgeInsets.symmetric(horizontal: 5),
         child: Divider(
           color: activeIndex == index ? AppTheme.pink : AppTheme.customBlack,

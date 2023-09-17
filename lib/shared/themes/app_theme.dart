@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 
+// a class that contains all the app theme data
 class AppTheme {
   // colors
   static const Color borderColor = Color(0xFF3A3A3A);

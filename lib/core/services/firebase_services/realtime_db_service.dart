@@ -1,6 +1,8 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:luvit_assessment/utils/extensions.dart';
 
+// A class that handles all the firebase realtime database operations. It performs
+// CRUD operations on the database and stream data.
 class RealTimeDatabaseService {
   //get all data from firebase database
   Future<Map<String, dynamic>> getAllData() async {
@@ -8,7 +10,6 @@ class RealTimeDatabaseService {
     final snapshot = await _database.get().catchError((error) {
       return error;
     });
-    print(snapshot.value);
     return snapshot.toMap;
   }
 
@@ -18,7 +19,6 @@ class RealTimeDatabaseService {
     final snapshot = await _database.get().catchError((error) {
       return error;
     });
-    print(snapshot.value.runtimeType);
     return snapshot.toMap;
   }
 
