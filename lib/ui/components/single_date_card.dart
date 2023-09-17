@@ -23,6 +23,7 @@ class _SingleDateCardState extends State<SingleDateCard> {
 
   @override
   void initState() {
+    super.initState();
     setState(() {
       isActive = controller.isActive(widget.data);
       currentIndex = isActive ? controller.currentDatePage : 0;
@@ -34,61 +35,38 @@ class _SingleDateCardState extends State<SingleDateCard> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
       decoration: AppTheme.dateCardDecoration,
-      clipBehavior: Clip.hardEdge,
-      child: GestureDetector(
-        onTapDown: isActive ? _onTapDown : null,
-        child: Stack(
-          clipBehavior: Clip.hardEdge,
-          children: [
-            DateCardDetails(data: widget.data, index: currentIndex),
-            Positioned(
-              top: 10,
-              left: 10,
-              right: 10,
-              child: SizedBox(
-                height: 20,
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return CurrentCardIndicator(
-                      index: index,
-                      activeIndex: isActive ? controller.currentDatePage : 0,
-                    );
-                  },
-                  itemCount: widget.data.images.length,
-                  scrollDirection: Axis.horizontal,
-                ),
+      child: Stack(
+        children: [
+          DateCardDetails(
+            data: widget.data,
+            index: currentIndex,
+            isActive: isActive,
+            onChanged: (value) {
+              setState(() {
+                currentIndex = value;
+              });
+            },
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            right: 10,
+            child: SizedBox(
+              height: 20,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return CurrentCardIndicator(
+                    index: index,
+                    activeIndex: isActive ? controller.currentDatePage : 0,
+                  );
+                },
+                itemCount: widget.data.images.length,
+                scrollDirection: Axis.horizontal,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
-  }
-
-  void _onTapDown(TapDownDetails details) {
-    double screenWidth = Get.width;
-    double screenHeight = Get.height;
-    double dx = details.globalPosition.dx;
-
-    print(dx);
-
-    if (dx < screenHeight / 2) {
-      if (dx < screenWidth / 2) {
-        if (controller.currentDatePage == 0) {
-          controller.currentDatePage = widget.data.images.length - 1;
-        } else {
-          controller.currentDatePage--;
-        }
-      } else {
-        if (controller.currentDatePage == widget.data.images.length - 1) {
-          controller.currentDatePage = 0;
-        } else {
-          controller.currentDatePage++;
-        }
-      }
-      setState(() {
-        currentIndex = controller.currentDatePage;
-      });
-    }
   }
 }

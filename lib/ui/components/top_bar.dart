@@ -19,7 +19,7 @@ class TopBar extends StatelessWidget {
             children: [
               Image.asset(
                 ImageConstants.location,
-                height: 30,
+                height: 25,
               ),
               SizedBox(
                 width: 10,
@@ -28,7 +28,7 @@ class TopBar extends StatelessWidget {
                 width: Get.width * 0.5,
                 child: Text('목이길어슬픈기린님의 새로운 스팟',
                     overflow: TextOverflow.ellipsis,
-                    style: AppTheme.normalTextStyle),
+                    style: AppTheme.normalBoldTextStyle),
               )
             ],
           ),
@@ -36,7 +36,7 @@ class TopBar extends StatelessWidget {
             children: [
               Container(
                 decoration: AppTheme.chipDecoration,
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: Row(
                   children: [
                     Icon(
@@ -48,7 +48,7 @@ class TopBar extends StatelessWidget {
                     ),
                     Text(
                       '323233',
-                      style: AppTheme.normalTextStyle,
+                      style: AppTheme.numberTextStyle,
                     ),
                   ],
                 ),
@@ -58,7 +58,7 @@ class TopBar extends StatelessWidget {
               ),
               Image.asset(
                 ImageConstants.notification,
-                width: 30,
+                width: 18,
               )
             ],
           )

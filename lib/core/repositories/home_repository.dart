@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:luvit_assessment/core/adapters/home_adapter.dart';
 import 'package:luvit_assessment/core/models/firebase_models.dart';
 import 'package:luvit_assessment/core/services/firebase_services/realtime_db_service.dart';
@@ -8,6 +9,9 @@ class HomeRepository implements IHomeRepository {
   final RealTimeDatabaseService realTimeDatabaseService;
 
   HomeRepository({required this.realTimeDatabaseService});
+
+  @override
+  StreamSubscription<DatabaseEvent>? likeCount;
   @override
   Future<DateCardData> getUser(String id) async {
     return await realTimeDatabaseService.getData(path: id).then((value) {
@@ -29,12 +33,9 @@ class HomeRepository implements IHomeRepository {
   }
 
   @override
-  Stream<int> streamLikeCount(String id) {
-    StreamController<int> likeCount = StreamController.broadcast();
-    realTimeDatabaseService.streamData("$id/likeCount").listen((event) {
-      likeCount.add(event.snapshot.value as int);
-    });
-    return likeCount.stream;
+  streamLikeCount(String id) {
+    likeCount =
+        realTimeDatabaseService.streamData("$id/likeCount").listen((event) {});
   }
 
   @override
@@ -42,6 +43,7 @@ class HomeRepository implements IHomeRepository {
     try {
       return await getUser(id).then((value) async {
         int likeCount = value.likeCount;
+        print("like count $likeCount");
         return await realTimeDatabaseService.updateData(
             path: id, data: {"likeCount": likeCount + 1}).then((value) {
           return true;
