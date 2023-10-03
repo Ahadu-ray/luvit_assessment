@@ -83,14 +83,14 @@ class DateCardBottom extends StatelessWidget {
         return Row(
           children: [
             Text(
-              "서울 (${data.location}) · 2km 거리에 있음",
+              data.location,
               style: AppTheme.subtitleTextStyle,
             ),
           ],
         );
       case 1:
         return Text(
-          "서로 아껴주고 힘이 되어줄 사람 찾아요 선릉으로 직장 다니고 있고 여행 좋아해요 이상한 이야기하시는 분 바로 차단입니다 (${data.description})",
+          data.description,
           style: AppTheme.subtitleTextStyle,
         );
       default:
@@ -110,7 +110,7 @@ class DateCardBottom extends StatelessWidget {
       children: [
         Flexible(
           child: Text(
-            "잭과분홍콩나물 ",
+            data.name,
             style: AppTheme.titleTextStyle,
           ),
         ),

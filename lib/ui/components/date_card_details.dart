@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:luvit_assessment/core/models/firebase_models.dart';
@@ -45,8 +46,19 @@ class DateCardDetails extends StatelessWidget {
             child: Container(
                 decoration: AppTheme.dateCardDecoration,
                 clipBehavior: Clip.hardEdge,
-                child: Image.asset(
-                  ImageConstants.dateImages[index < 2 ? index : 2],
+                child: CachedNetworkImage(
+                  imageUrl: data.images[index],
+                  fit: BoxFit.fitHeight,
+                  width: 340,
+                  height: 600,
+                  placeholder: (context, url) => Image.asset(
+                    ImageConstants.dateImage1,
+                    fit: BoxFit.cover,
+                  ),
+                  errorWidget: (context, url, error) => Image.asset(
+                    ImageConstants.dateImage3,
+                    fit: BoxFit.cover,
+                  ),
                 )),
           ),
           Positioned(
